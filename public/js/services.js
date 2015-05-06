@@ -31,3 +31,16 @@ angular.module('myApp.services', [])
 			}			
 		}
 	}])
+	.factory('AuthService', ['$http', function($http){
+		return {
+			login: function(credentials){
+				return $http.post('/api/login', credentials);
+			},
+			logout: function(){
+				return $http.get('/api/logout');
+			}
+		};
+	}])
+	.value('version', '0.1');
+	
+
