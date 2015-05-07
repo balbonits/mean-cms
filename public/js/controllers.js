@@ -61,7 +61,7 @@ angular.module('myApp.controllers',[])
 	}])
 	.controller('AppCtrl', ['$scope','AuthService','flashMessageService','$location','$log',function($scope,AuthService,flashMessageService,$location,$log){
 		$scope.site = {
-			logo: "http://a.fssta.com/etc/designs/fsdigital/foxsports/styles/src/components/images/site-logo.svg?fsv=2015011401",
+			logo: "",
 			footer: "This is a sample site, for personal use."
 		}
 		$scope.logout = function(){
