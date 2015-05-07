@@ -1,10 +1,3 @@
-'use strict';
-
-/* Services */
-
-
-// Demonstrate how to register services
-// In this case it is a simple value service.
 angular.module('myApp.services', [])
 	.factory('pagesFactory', ['$http', function($http){
 		return {
@@ -38,6 +31,20 @@ angular.module('myApp.services', [])
 			},
 			logout: function(){
 				return $http.get('/api/logout');
+			}
+		};
+	}])
+	.factory('myHttpInterceptor', ['$q','$location', function($q,$location){
+		return {
+			response: function(res){
+				return res;
+			},
+			responseError: function(res){
+				if(res.status === 401){
+					$location.path('/admin/login');
+					return $q.reject(res);
+				}
+				return $q.reject(res);
 			}
 		};
 	}])
