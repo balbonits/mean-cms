@@ -3,10 +3,10 @@ var mongoose = require('mongoose');
 var Page = require('../models/page.js');
 var adminUser = require('../models/admin-user.js');
 var bcrypt = require('bcrypt-nodejs');
+
 router.get('/',function(req,res){
 	res.send('Welcome to the API Zone');
 });
-
 
 // PAGES API
 // (CRUD = READ) GET 
